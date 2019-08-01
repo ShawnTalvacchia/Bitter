@@ -69,4 +69,15 @@ inputField.addEventListener("keyup", e => {
   }
 });
 
+// This function only fetches self-hardcoded data in myjson.
+async function getData() {
+  const response = await fetch('https://api.myjson.com/bins/9rrdh')
+  const jsonData = await response.json()
+//   const newsHTML = jsonData.articles.map(renderArticle)
+//   console.log(jsonData.articles [0])
+//   document.getElementById('newsList').innerHTML = newsHTML.join ('')
+  console.log('Tweets', jsonData)
+};
+getData()
+
 renderTweets();
