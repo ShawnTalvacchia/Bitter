@@ -23,7 +23,8 @@ function renderSingleTweet(tweet, index) {
     <p> ${tweet.body} </p>
     <button class="btn btn-sm btn-outline-success complete" onclick=toggle(${index})>${
     tweet.isLiked ? "Unlike" : "Like"
-  }</button> ${tweet.isLiked}
+  }</button>
+    <button onclick="deleteTweet(${index})">x</button>
 </li>
     `;
 }
@@ -44,8 +45,14 @@ function createTweet() {
   updateLength();
 }
 
+// Reverse like or unlike tweets
 function toggle(index) {
   tweets[index].isLiked = !tweets[index].isLiked;
+  renderTweets();
+}
+
+function deleteTweet(index) {
+  tweets.splice(index, 1);
   renderTweets();
 }
 
@@ -55,6 +62,11 @@ function updateLength() {
 }
 
 document.getElementById("tweetInput").focus();
-inputField.addEventListener("keyup", updateLength());
+inputField.addEventListener("keyup", e => {
+  updateLength();
+  if (e.key === "Enter") {
+    createTweet();
+  }
+});
 
 renderTweets();
