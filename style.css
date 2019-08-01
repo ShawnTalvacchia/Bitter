@@ -1,0 +1,31 @@
+.searchBar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchBar input {
+    width: 490px;
+    height: 44px;
+    border-radius: 25px;
+    border: 1px solid #c3c3c4;
+    box-shadow: none;
+}
+
+.searchBar button {
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+    font-family: 'Crimson Pro', serif;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#tweets li {
+    margin: 1rem;
+    padding: 1rem;
+    list-style: none;
+    border: gray;
+    border-width: .1rem;
+    border-style: solid;
+    border-radius: 10px;
+}
