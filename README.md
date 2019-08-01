@@ -1,17 +1,12 @@
 ## Required User Stories
 
-<<<<<<< HEAD
 - [x] The user should be able to enter a message into a text field.
 - [x] The user should be able to press "Tweet" and see the message pop in below the text box.
-=======
-- [X] The user should be able to enter a message into a text field.
-- [X] The user should be able to press "Tweet" and see the message pop in below the text box.
->>>>>>> 3ba294cce53cf3175c3a0cb83fde1af1c3ee09a4
 - [ ] The user should see a "count" that displays how many more characters the user has remaining, counting down from 140.
 - [ ] Upon tweeting, the characters remaining text should reset back to 140, and the field should be cleared.
-- [ ] The application should disallow text of greater than 140 characters.
+- [x] The application should disallow text of greater than 140 characters.
 - [ ] The user should be able to "Retweet". Clicking Retweet immediately inserts a copy of that tweet below the original tweet.
-- [ ] The user should be able to "Like". When "Like" is clicked, the text should change to "Unlike". When "Unlike" is clicked, the text should change to "Like". Alternatively, use a heart icon (colored or not colored).
+- [x] The user should be able to "Like". When "Like" is clicked, the text should change to "Unlike". When "Unlike" is clicked, the text should change to "Like". Alternatively, use a heart icon (colored or not colored).
 - [ ] When a "Liked" tweet is retweeted, the new tweet should not be liked.
 - [ ] Each tweet has an optional hashtag. The hashtag should be linked with an anchor tag.
 - [ ] The user should be able to delete a tweet.
