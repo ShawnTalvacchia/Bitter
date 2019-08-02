@@ -56,7 +56,7 @@ function renderTweets() {
 function createTweet() {
   let tweetContent = inputField.value;
   let tweet = newTweet(tweetContent, currentUser, moment()._d);
-  tweets.push(tweet);
+  tweets.unshift(tweet);
   renderTweets();
   inputField.value = "";
   updateLength();
