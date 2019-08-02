@@ -178,4 +178,9 @@ header.masthead {
     -webkit-transform: translateX(-10px);
     transform: translateX(-10px);
   }
+
+  .btn-outline-dark {
+    border: none !important;
+}
+
   

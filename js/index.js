@@ -32,8 +32,8 @@ function renderSingleTweet(tweet, index) {
           <small class="text-muted"> ${tweet.createdAt} </small>
         </div>
         <div class="tweet-buttons">
-          <button class="btn-sm btn btn-outline-dark" 
-                  onclick=toggle(${index})>${tweet.isLiked ? "Unlike" : "Like"}
+        <button class="btn-sm btn btn-outline-dark" 
+                  onclick=toggle(${index})>${tweet.isLiked ? '<i class="fa fa-heart" aria-hidden="true"></i>' : '<i class="far fa-heart"></i>' }
           </button>
           <button class="btn-sm btn btn-outline-danger" 
                   onclick=deleteTweet(${index})>Remove
@@ -89,3 +89,15 @@ function changeUser() {
 }
 
 renderTweets();
+
+let url= 'https://newsapi.org/v2/top-headlines?country=us&apiKey=7a557050c3b9423599354c66f5211288'
+
+async function getNews() {
+    const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=7a557050c3b9423599354c66f5211288')
+    const jsonData = await response.json()
+    const newsHTML = jsonData.articles.map(renderArticle)
+    console.log(jsonData.articles [0])
+    document.getElementById('newsList').innerHTML = newsHTML.join ('')
+    console.log('Latest news', jsonData.title)
+  };
+  getNews()
