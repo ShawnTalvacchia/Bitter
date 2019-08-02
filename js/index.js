@@ -2,11 +2,13 @@ let tweets = [];
 let inputField = document.getElementById("tweetInput");
 
 // Create new tweet object
-function newTweet(body, userName, isLiked = false) {
+function newTweet(body, userName, createdAt, imgURL = "", isLiked = false) {
   return {
+    createdAt: moment(createdAt).format("YYYY-MM-DD HH:mm"),
     body,
     isLiked,
-    userName
+    userName,
+    imgURL
   };
 }
 
@@ -25,6 +27,7 @@ function renderSingleTweet(tweet, index) {
       </div>
       <div class="col-10">
         <h5> ${tweet.userName} </h5> 
+        <p> ${tweet.createdAt} </p>
         <p> ${tweet.body} </p>
         <div class="tweet-buttons">
           <button class="btn-sm btn btn-outline-dark" 
@@ -49,8 +52,8 @@ function renderTweets() {
 //Take input from user and create new tweet
 function createTweet() {
   let tweetContent = inputField.value;
-  let tweet = newTweet(tweetContent, "Quyen");
-  tweets.unshift(tweet);
+  let tweet = newTweet(tweetContent, "Quyen", moment()._d);
+  tweets.push(tweet);
   renderTweets();
   inputField.value = "";
   updateLength();
