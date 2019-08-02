@@ -88,6 +88,8 @@ header {
     background-color: white;
     padding-left: 2rem;
     padding-right: 2rem;
+    margin-left: auto;
+    margin-right: auto;
     font-family: 'Crimson Pro', serif !important;
 }
 
@@ -95,10 +97,11 @@ header {
     margin: 1rem;
     padding: 1rem;
     list-style: none;
-    border: gray;
-    border-width: .1rem;
+    border-width: .05rem;
     border-style: solid;
     border-radius: 10px;
+    background-color: rgb(252, 252, 252);
+    
 }
 
 header.masthead {
@@ -121,6 +124,7 @@ header.masthead {
     width: 100%;
     padding-top: 10px;
     border-bottom: 1px solid lightblue;
+    box-shadow: #e1e1e1;
 }
 
 .tweet-buttons {
