@@ -99,32 +99,23 @@
     <!-- Main Content -->
     <div class="container">
       <div class="inputBar row">
-        <div class="input-and-length col-xs-12 col-sm-12 col-md-9 col-lg-6">
-          <input
-            maxlength="140"
-            type="text"
-            placeholder="What's annoying you?"
-            id="tweetInput"
-          />
+        <div class="input-and-length col-xs-12 col-sm-12 col-md-9 col-lg-9">
+          <input maxlength="140" type="text" placeholder="What's annoying you?" id="tweetInput" />
           <p class="tweet-length">
             <span id="tweetLength"></span>
           </p>
+        </div>  
+        <div class="input-and-length col-xs-6 col-sm-6 col-md-3 col-lg-3">
+          <button style="background-color:lightblue; color:white; font-size: 1.5rem; font-family: Open Sans !important" class="hvr-bubble-float-left" onclick="createTweet()">THROW</button>
         </div>
-        <button
-          style="background-color:lightblue; color:white; font-size: 1.5rem; font-family: Open Sans !important"
-          class="hvr-bubble-float-left col-lg-3"
-          onclick="createTweet()"
-        >
-          THROW
-        </button>
+      </div>
+      <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul id="tweets"></ul>
       </div>
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <ul id="tweets"></ul>
-          <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#"
-              >Older Posts &rarr;</a
-            >
           </div>
         </div>
       </div>

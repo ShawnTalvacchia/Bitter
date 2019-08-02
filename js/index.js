@@ -12,10 +12,10 @@ function newTweet(body, userName, createdAt, imgURL = "", isLiked = false) {
   };
 }
 
-tweets.push(newTweet("hello", (userName = "Mai")));
-tweets.push(newTweet("Twitter", (userName = "Quyen")));
-tweets.push(newTweet("Mai", (userName = "Shawn")));
-tweets.push(newTweet("Hello again", (userName = "Parsa")));
+tweets.push(newTweet("Come on inner peace, I don't have all day!", "Mai"));
+tweets.push(newTweet("Team work makes the dream work", "Quyen"));
+tweets.push(newTweet("canceling plans is ok. staying home to cook is ok. disappearing for a bit to get your life together is ok. resurfacing in a foreign country with a new name 10 years later is ok. it's called self care", "Shawn"));
+tweets.push(newTweet("Me: ok, just breathe and relax. <br> Brain: OR WE COULD TRY AND FIGURE OUT THE EXACT MOMENT ALL YOUR HOPES AND DREAMS DIED", "Parsa"));
 
 //Create template for tweet
 function renderSingleTweet(tweet, index) {
@@ -27,8 +27,10 @@ function renderSingleTweet(tweet, index) {
       </div>
       <div class="col-10">
         <h5> ${tweet.userName} </h5> 
-        <p> ${tweet.createdAt} </p>
         <p> ${tweet.body} </p>
+        <div class="mb-3 mt-1">
+          <small class="text-muted"> ${tweet.createdAt} </small>
+        </div>
         <div class="tweet-buttons">
           <button class="btn-sm btn btn-outline-dark" 
                   onclick=toggle(${index})>${tweet.isLiked ? "Unlike" : "Like"}

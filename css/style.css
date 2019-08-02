@@ -14,21 +14,37 @@ header {
 
 .input-and-length {
     display: flex;
+    width: 700px;
 }
 
 .inputBar p {
     margin-top: 1rem !important;
 }
 
-.inputBar input {
+.input-and-length input {
     margin-top: 1rem;
     font-size: 1rem;
     font-family: Lora !important;
     padding-right: 1rem;
 }
 
+.inputBar input {
+    width: 700px;
+    height: 55px;
+    border-radius: 25px;
+    background-color: darkgray;
+    border-color: transparent;
+    box-shadow: #e1e1e1;
+    color: black;
+    padding-left: 1rem;
+    z-index: 1;
+    font-size: 1.2rem;
+}
+
 .inputBar input:hover {
+    background-color: rgb(21, 21, 21);
     box-shadow: 0px 0px 3px 3px darkgrey;
+    color: white;
 }
 
 .inputBar button {
@@ -39,7 +55,7 @@ header {
     margin-left: -3rem !important;
     margin: 0;
     padding-left: 1.7rem;
-    width: 8rem;
+    width: 12rem;
     z-index: 0;
     background-color: darkgray;
     display: flex;
@@ -56,17 +72,6 @@ header {
     box-shadow: #e1e1e1;
     color: white;
     padding-left: 1rem;
-}
-.inputBar input {
-    width: 490px;
-    height: 55px;
-    border-radius: 25px;
-    background-color: rgb(33, 33, 33);
-    border-color: transparent;
-    box-shadow: #e1e1e1;
-    color: white;
-    padding-left: 1rem;
-    z-index: 1;
 }
 
 ::placeholder {
@@ -96,13 +101,26 @@ header {
     border-radius: 10px;
 }
 
+header.masthead {
+    margin-bottom: 0px !important;
+}
+
+#tweets li p {
+    font-size: 1rem;
+    margin-bottom: .2rem !important;
+}
+
+#tweets li small {
+    font-size: .8rem;
+    /* margin-bottom: 1rem !important; */
+}
+
 #tweets li p::after {
     content: '';
     display: block;
-    /* margin: left; */
     width: 100%;
     padding-top: 10px;
-    border-bottom: 1px solid darkblue;
+    border-bottom: 1px solid lightblue;
 }
 
 .tweet-buttons {
@@ -111,6 +129,8 @@ header {
 }
 
 .avatar {
+    margin-left: auto;
+    margin-right: auto;
     max-width: 14% !important;
     min-width: 10% !important;
 }
