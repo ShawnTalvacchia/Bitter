@@ -1,6 +1,10 @@
-let tweets = [];
+let tweets = JSON.parse(localStorage.getItem("tweets")) || [];
 let inputField = document.getElementById("tweetInput");
 let currentUser = "Anonymous";
+
+function setLocalstorage(newTweets) {
+  localStorage.setItem("tweets", JSON.stringify(newTweets));
+}
 
 // Create new tweet object
 function newTweet(body, userName, createdAt, imgURL = "", isLiked = false) {
@@ -12,11 +16,6 @@ function newTweet(body, userName, createdAt, imgURL = "", isLiked = false) {
     imgURL
   };
 }
-
-tweets.push(newTweet("Come on inner peace, I don't have all day!", "Mai"));
-tweets.push(newTweet("Team work makes the dream work", "Quyen"));
-tweets.push(newTweet("canceling plans is ok. staying home to cook is ok. disappearing for a bit to get your life together is ok. resurfacing in a foreign country with a new name 10 years later is ok. it's called self care", "Shawn"));
-tweets.push(newTweet("Me: ok, just breathe and relax. <br> Brain: OR WE COULD TRY AND FIGURE OUT THE EXACT MOMENT ALL YOUR HOPES AND DREAMS DIED", "Parsa"));
 
 //Create template for tweet
 function renderSingleTweet(tweet, index) {
@@ -50,6 +49,7 @@ function renderSingleTweet(tweet, index) {
 function renderTweets() {
   let tweetsList = tweets.map(renderSingleTweet);
   document.getElementById("tweets").innerHTML = tweetsList.join("");
+  setLocalstorage(tweets);
 }
 
 //Take input from user and create new tweet
