@@ -27,8 +27,10 @@ function renderSingleTweet(tweet, index) {
       </div>
       <div class="col-10">
         <h5> ${tweet.userName} </h5> 
-        <p> ${tweet.createdAt} </p>
         <p> ${tweet.body} </p>
+        <div class="mb-3 mt-1">
+          <small class="text-muted"> ${tweet.createdAt} </small>
+        </div>
         <div class="tweet-buttons">
           <button class="btn-sm btn btn-outline-dark" 
                   onclick=toggle(${index})>${tweet.isLiked ? "Unlike" : "Like"}
