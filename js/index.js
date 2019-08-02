@@ -10,10 +10,10 @@ function newTweet(body, userName, isLiked = false) {
   };
 }
 
-tweets.push(newTweet("hello", (userName = "Mai")));
-tweets.push(newTweet("Twitter", (userName = "Quyen")));
-tweets.push(newTweet("Mai", (userName = "Shawn")));
-tweets.push(newTweet("Hello again", (userName = "Parsa")));
+tweets.push(newTweet("Come on inner peace, I don't have all day!", "Mai"));
+tweets.push(newTweet("Team work makes the dream work", "Quyen"));
+tweets.push(newTweet("canceling plans is ok. staying home to cook is ok. disappearing for a bit to get your life together is ok. resurfacing in a foreign country with a new name 10 years later is ok. it's called self care", "Shawn"));
+tweets.push(newTweet("Me: ok, just breathe and relax. <br> Brain: OR WE COULD TRY AND FIGURE OUT THE EXACT MOMENT ALL YOUR HOPES AND DREAMS DIED", "Parsa"));
 
 //Create template for tweet
 function renderSingleTweet(tweet, index) {
@@ -50,7 +50,7 @@ function renderTweets() {
 function createTweet() {
   let tweetContent = inputField.value;
   let tweet = newTweet(tweetContent, "Quyen");
-  tweets.push(tweet);
+  tweets.unshift(tweet);
   renderTweets();
   inputField.value = "";
   updateLength();
