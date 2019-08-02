@@ -19,13 +19,24 @@ tweets.push(newTweet("Hello again", (userName = "Parsa")));
 function renderSingleTweet(tweet, index) {
   return `
   <li>
-    <h2> ${tweet.userName} </h2> 
-    <p> ${tweet.body} </p>
-    <button class="btn btn-sm btn-outline-success complete" onclick=toggle(${index})>${
-    tweet.isLiked ? "Unlike" : "Like"
-  }</button>
-    <button onclick="deleteTweet(${index})">x</button>
-</li>
+    <div class="row">  
+      <div class="col avatar">
+        <img id="avatar" src="img/GitHub-icon.png">
+      </div>
+      <div class="col-10">
+        <h5> ${tweet.userName} </h5> 
+        <p> ${tweet.body} </p>
+        <div class="tweet-buttons">
+          <button class="btn-sm btn btn-outline-dark" 
+                  onclick=toggle(${index})>${tweet.isLiked ? "Unlike" : "Like"}
+          </button>
+          <button class="btn-sm btn btn-outline-danger" 
+                  onclick=deleteTweet(${index})>Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </li>
     `;
 }
 
