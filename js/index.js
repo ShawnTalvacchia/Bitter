@@ -100,4 +100,4 @@ async function getNews() {
     document.getElementById('newsList').innerHTML = newsHTML.join ('')
     console.log('Latest news', jsonData.title)
   };
-  getNews()
+  // getNews()
