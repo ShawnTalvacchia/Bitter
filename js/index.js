@@ -1,5 +1,6 @@
 let tweets = [];
 let inputField = document.getElementById("tweetInput");
+let currentUser = "Anonymous";
 
 // Create new tweet object
 function newTweet(body, userName, createdAt, imgURL = "", isLiked = false) {
@@ -52,7 +53,7 @@ function renderTweets() {
 //Take input from user and create new tweet
 function createTweet() {
   let tweetContent = inputField.value;
-  let tweet = newTweet(tweetContent, "Quyen", moment()._d);
+  let tweet = newTweet(tweetContent, currentUser, moment()._d);
   tweets.push(tweet);
   renderTweets();
   inputField.value = "";
@@ -78,9 +79,11 @@ function updateLength() {
 document.getElementById("tweetInput").focus();
 inputField.addEventListener("keyup", e => {
   updateLength();
-  if (e.key === "Enter") {
-    createTweet();
-  }
+  if (e.key === "Enter") createTweet();
 });
+
+function changeUser() {
+  currentUser = prompt("Who are you?");
+}
 
 renderTweets();
