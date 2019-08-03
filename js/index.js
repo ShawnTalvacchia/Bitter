@@ -40,14 +40,23 @@ function renderSingleTweet(tweet, index) {
           <small class="text-muted"> ${tweet.createdAt} </small>
         </div>
         <div class="tweet-buttons">
-        <button class="btn-sm btn btn-outline-dark" 
-                  onclick=toggle(${index})>${
+        <div>
+          <button class="btn-sm btn btn-outline-dark" 
+                    onclick=toggle(${index})>${
     tweet.isLiked
       ? '<i class="fa fa-heart" aria-hidden="true"></i>'
       : '<i class="far fa-heart"></i>'
   }
-          </button>
-          <button class="btn-sm btn btn-outline-danger" 
+            </button>
+            <button class="btn-sm btn btn-dark" style="visibility: ${
+              currentUser == "Anonymous" ? "hidden" : null
+            }"
+                    onclick=retweet(${index})>Retweet
+            </button>
+          </div>
+          <button class="btn-sm btn btn-outline-danger" style="visibility: ${
+            tweet.userName != currentUser ? "hidden" : null
+          }" 
                   onclick=deleteTweet(${index})>Remove
           </button>
         </div>
@@ -84,6 +93,14 @@ function createTweet() {
   updateLength();
 }
 
+//Retweet function
+function retweet(index) {
+  let body = tweets[index].body;
+  let author = `${currentUser} retweeted ${tweets[index].userName}`;
+  tweets.splice(index + 1, 0, newTweet(body, author));
+  renderTweets();
+}
+
 // Reverse like or unlike tweets
 function toggle(index) {
   tweets[index].isLiked = !tweets[index].isLiked;
@@ -99,9 +116,9 @@ function deleteTweet(index) {
 function renderComment(index) {
   let commentsList = tweets[index].comments.map(comment => {
     return `
-    <li style="border:none; margin: 0; padding: 10px 0 0 0"> 
+    <li style="border:none; margin: 0; padding: 5px 0 0 0"> 
       <span style="font-weight: bold"> ${comment.user} </span> 
-      <span> said ${comment.body} </span> 
+      <span> said "${comment.body}" </span> 
     </li> `;
   });
   return commentsList.join("");
@@ -163,11 +180,13 @@ let url =
   "https://newsapi.org/v2/top-headlines?country=us&apiKey=7a557050c3b9423599354c66f5211288";
 
 async function getNews() {
-    const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=7a557050c3b9423599354c66f5211288')
-    const jsonData = await response.json()
-    const newsHTML = jsonData.articles.map(renderArticle)
-    console.log(jsonData.articles [0])
-    document.getElementById('newsList').innerHTML = newsHTML.join ('')
-    console.log('Latest news', jsonData.title)
-  };
-  // getNews()
+  const response = await fetch(
+    "https://newsapi.org/v2/top-headlines?country=us&apiKey=7a557050c3b9423599354c66f5211288"
+  );
+  const jsonData = await response.json();
+  const newsHTML = jsonData.articles.map(renderArticle);
+  console.log(jsonData.articles[0]);
+  document.getElementById("newsList").innerHTML = newsHTML.join("");
+  console.log("Latest news", jsonData.title);
+}
+// getNews()
