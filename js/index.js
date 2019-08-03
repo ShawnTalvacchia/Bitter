@@ -1,6 +1,6 @@
 let tweets = JSON.parse(localStorage.getItem("tweets")) || [];
 let inputField = document.getElementById("tweetInput");
-var currentUser = "Anonymous";
+let currentUser = "Anonymous";
 
 function setLocalstorage(newTweets) {
   localStorage.setItem("tweets", JSON.stringify(newTweets));
@@ -163,13 +163,11 @@ let url =
   "https://newsapi.org/v2/top-headlines?country=us&apiKey=7a557050c3b9423599354c66f5211288";
 
 async function getNews() {
-  const response = await fetch(
-    "https://newsapi.org/v2/top-headlines?country=us&apiKey=7a557050c3b9423599354c66f5211288"
-  );
-  const jsonData = await response.json();
-  const newsHTML = jsonData.articles.map(renderArticle);
-  console.log(jsonData.articles[0]);
-  document.getElementById("newsList").innerHTML = newsHTML.join("");
-  console.log("Latest news", jsonData.title);
-}
-// getNews();
+    const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=7a557050c3b9423599354c66f5211288')
+    const jsonData = await response.json()
+    const newsHTML = jsonData.articles.map(renderArticle)
+    console.log(jsonData.articles [0])
+    document.getElementById('newsList').innerHTML = newsHTML.join ('')
+    console.log('Latest news', jsonData.title)
+  };
+  // getNews()
