@@ -1,4 +1,13 @@
-let tweets = JSON.parse(localStorage.getItem("tweets")) || [];
+let tweets;
+async function getTweets() {
+  const response = await fetch("https://api.myjson.com/bins/10ypnp");
+  const jsonData = await response.json();
+  tweets = JSON.parse(localStorage.getItem("tweets")) || jsonData["tweets"]; //
+  console.log(tweets);
+  renderTweets();
+}
+
+// let tweets = JSON.parse(localStorage.getItem("tweets")) || [];
 let inputField = document.getElementById("tweetInput");
 let currentUser = "Anonymous";
 
@@ -29,58 +38,59 @@ function newTweet(
 //Create template for tweet
 function renderSingleTweet(tweet, index) {
   return `
-  <li>
+    <li>
     <div class="row">  
-      <div class="col avatar">
-        <img id="avatar" src="img/GitHub-icon.png">
-      </div>
-      <div class="col-10">
-        <h5> ${tweet.userName} </h5> 
-        <p> ${parseText(tweet.body)} </p>
-        <div class="mb-3 mt-1">
-          <small class="text-muted"> ${tweet.createdAt} </small>
-        </div>
-        <div class="tweet-buttons">
-        <div>
-          <button class="btn-sm btn btn-outline-dark" 
-                    onclick=toggle(${index})>${
+    <div class="col avatar">
+    <img id="avatar" src="img/GitHub-icon.png">
+    </div>
+    <div class="col-10">
+    <h5> ${tweet.userName} </h5> 
+    <p> ${parseText(tweet.body)} </p>
+    <div class="mb-3 mt-1">
+    <small class="text-muted"> ${tweet.createdAt} </small>
+    </div>
+    <div class="tweet-buttons">
+    <div>
+    <button class="btn-sm btn btn-outline-dark" 
+    onclick=toggle(${index})>${
     tweet.isLiked
       ? '<i class="fa fa-heart" aria-hidden="true"></i>'
       : '<i class="far fa-heart"></i>'
   }
-            </button>
-            <button class="btn-sm btn btn-dark" style="visibility: ${
-              currentUser == "Anonymous" ? "hidden" : null
-            }"
+    </button>
+    <button class="btn-sm btn btn-dark" style="visibility: ${
+      currentUser == "Anonymous" ? "hidden" : null
+    }"
                     onclick=retweet(${index})>Retweet
-            </button>
-          </div>
-          <button class="btn-sm btn btn-outline-danger" style="visibility: ${
-            tweet.userName != currentUser ? "hidden" : null
-          }" 
+                    </button>
+                    </div>
+                    <button class="btn-sm btn btn-outline-danger" style="visibility: ${
+                      tweet.userName != currentUser ? "hidden" : null
+                    }" 
                   onclick=deleteTweet(${index})>Remove
-          </button>
+                  </button>
         </div>
         <div class="input-group mt-3">
           <!-- <div class="input-group-prepend">
-            <span class="input-group-text" ">${currentUser}</span>
+          <span class="input-group-text" ">${currentUser}</span>
           </div> -->
           <input type="text" class="form-control commentInput" onchange= "addComment(${index}, currentUser)" 
-                  placeholder="Comment">
+          placeholder="Comment">
         </div>
         <ul class="comments" style="padding:0">  
-          <small> ${renderComment(index) || "No comment on this post"}</small>
+        <small> ${renderComment(index) || "No comment on this post"}</small>
         </ul>
-      </div>
-    </div>
-  </li>
-    `;
+        </div>
+        </div>
+        </li>
+        `;
 }
 
 //Take tweet array, apply template to each element, put in HTML
 function renderTweets() {
   let tweetsList = tweets.map(renderSingleTweet);
   document.getElementById("tweets").innerHTML = tweetsList.join("");
+  inputField.placeholder = `What is annoying you ${currentUser}?`;
   setLocalstorage(tweets);
 }
 
@@ -119,8 +129,8 @@ function renderComment(index) {
   let commentsList = tweets[index].comments.map(comment => {
     return `
     <li style="border:none; margin: 0; padding: 5px 0 0 0"> 
-      <span style="font-weight: bold"> ${comment.user} </span> 
-      <span> said "${comment.body}" </span> 
+    <span style="font-weight: bold"> ${comment.user} </span> 
+    <span> said "${comment.body}" </span> 
     </li> `;
   });
   return commentsList.join("");
@@ -179,7 +189,7 @@ function filter(word) {
 //   false
 // );
 
-renderTweets();
+getTweets();
 
 let url =
   "https://newsapi.org/v2/top-headlines?country=us&apiKey=7a557050c3b9423599354c66f5211288";
