@@ -1,25 +1,30 @@
 # [Start Bootstrap - Clean Blog](https://startbootstrap.com/template-overviews/clean-blog/)
 
 [Clean Blog](http://startbootstrap.com/template-overviews/clean-blog/) is a stylish, responsive blog theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working PHP contact form.
+
 ### Required stories
+
 - [x] The user should be able to enter a message into a text field.
 - [x] The user should be able to press "Tweet" and see the message pop in below the text box.
 - [x] The user should see a "count" that displays how many more characters the user has remaining, counting down from 140.
 - [x] Upon tweeting, the characters remaining text should reset back to 140, and the field should be cleared.
 - [x] The application should disallow text of greater than 140 characters.
-- [ ] The user should be able to "Retweet". Clicking Retweet immediately inserts a copy of that tweet below the original tweet.
+- [x] The user should be able to "Retweet". Clicking Retweet immediately inserts a copy of that tweet below the original tweet.
 - [x] The user should be able to "Like". When "Like" is clicked, the text should change to "Unlike". When "Unlike" is clicked, the text should change to "Like". Alternatively, use a heart icon (colored or not colored).
-- [ ] When a "Liked" tweet is retweeted, the new tweet should not be liked.
-- [X] Each tweet has an optional hashtag. The hashtag should be linked with an anchor tag.
+- [x] When a "Liked" tweet is retweeted, the new tweet should not be liked.
+- [x] Each tweet has an optional hashtag. The hashtag should be linked with an anchor tag.
 - [x] The user should be able to delete a tweet.
+
 ### Optional Stories
-- [ ] Download and upload the list of tweets using the myjson api, as shown in class.
-- [ ] Users can mention other users. Any string that starts with @username will be highlighted in blue.
+
+- [x] Download and upload the list of tweets using the myjson api, as shown in class.
+- [x] Users can mention other users. Any string that starts with @username will be highlighted in blue.
 - [ ] The user can click on a hashtag, and only other tweets with that hashtag are shown.
-- [ ] When the user deletes a tweet, all retweets should be deleted.
+- [x] When the user deletes a tweet, all retweets should be deleted.
 - [ ] Any tweet with an image URL will have the image automatically expanded in the tweet.
 
 ### Additional stories
+
 - [x] User can comment on a tweet
 
 ## Preview
@@ -39,10 +44,11 @@
 ## Download and Installation
 
 To begin using this template, choose one of the following options to get started:
-* [Download the latest release on Start Bootstrap](https://startbootstrap.com/template-overviews/clean-blog/)
-* Install via npm: `npm i startbootstrap-clean-blog`
-* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-clean-blog.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/BlackrockDigital/startbootstrap-clean-blog)
+
+- [Download the latest release on Start Bootstrap](https://startbootstrap.com/template-overviews/clean-blog/)
+- Install via npm: `npm i startbootstrap-clean-blog`
+- Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-clean-blog.git`
+- [Fork, Clone, or Download on GitHub](https://github.com/BlackrockDigital/startbootstrap-clean-blog)
 
 ## Usage
 
@@ -72,14 +78,14 @@ Have a bug or an issue with this template? [Open a new issue](https://github.com
 
 Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
 
-* https://startbootstrap.com
-* https://twitter.com/SBootstrap
+- https://startbootstrap.com
+- https://twitter.com/SBootstrap
 
 Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
 
-* http://davidmiller.io
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
+- http://davidmiller.io
+- https://twitter.com/davidmillerskt
+- https://github.com/davidtmiller
 
 Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
 
