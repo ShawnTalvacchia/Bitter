@@ -16,11 +16,12 @@ function newTweet(
   comments = []
 ) {
   return {
-    createdAt: moment(createdAt).format("YYYY-MM-DD HH:mm"),
     body,
-    isLiked,
     userName,
+    createdAt: moment(createdAt).format("YYYY-MM-DD HH:mm"),
     imgURL,
+    isLiked,
+    retweetCount: 0,
     comments
   };
 }
@@ -98,6 +99,7 @@ function retweet(index) {
   let body = tweets[index].body;
   let author = `${currentUser} retweeted ${tweets[index].userName}`;
   tweets.splice(index + 1, 0, newTweet(body, author));
+  tweets[index].retweetCount++;
   renderTweets();
 }
 
@@ -108,7 +110,7 @@ function toggle(index) {
 }
 
 function deleteTweet(index) {
-  tweets.splice(index, 1);
+  tweets.splice(index, tweets[index].retweetCount + 1);
   renderTweets();
 }
 
@@ -157,22 +159,25 @@ function parseText(text) {
     .map(word => {
       if (word.startsWith("@")) return `<a class="tag" href="#">${word}</a>`;
       else if (word.startsWith("#"))
-        return `<a class="tag" href="#">${word}</a>`;
+        return `<a class="hashtag" href="#" onclick=filter(${word})>${word}</a>`;
       else return word;
     })
     .join(" ");
 }
 
+function filter(word) {
+  console.log(word);
+}
 // For tags: onclick, filter tweets
-document.body.addEventListener(
-  "click",
-  function(evt) {
-    if (evt.target.className === "tag") {
-      alert(this);
-    }
-  },
-  false
-);
+// document.body.addEventListener(
+//   "click",
+//   function(evt) {
+//     if (evt.target.className === "hashtag") {
+//       alert(evt.srcElement);
+//     }
+//   },
+//   false
+// );
 
 renderTweets();
 
