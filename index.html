@@ -105,97 +105,98 @@
 
     <!-- Main Content -->
     <div class="container">
-    <div class="row">
-
-      <!-- Sidebar -->
-      <div class='col-3'>
-        <div class="card">
-          <img src="https://ae01.alicdn.com/kf/HTB1W0q.teuSBuNjSsziq6zq8pXaB/Lovely-Horns-Car-Sticker-Styling-Cartoon-Decals-Vinyl-Waterproof-Car-Styling.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Unicorn in Tech</h5>
-            <p class="card-text">Code or die!</p>
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <div class="card">
+            <img src="https://ae01.alicdn.com/kf/HTB1W0q.teuSBuNjSsziq6zq8pXaB/Lovely-Horns-Car-Sticker-Styling-Cartoon-Decals-Vinyl-Waterproof-Car-Styling.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Unicorn in Tech</h5>
+              <p class="card-text">Code or die!</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <h6>TWEETED:</h6> 
+                <p>111 times</p>
+              </li>
+              <li class="list-group-item">
+                <h6>FOLLOWERS:</h6> 
+                <p>1,222 people</p>
+              </li>
+              <li class="list-group-item">
+                <h6>FOLLOWING</h6> 
+                <p>333 people</p>
+              </li>
+            </ul>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <h6>TWEETED:</h6> 
-              <p>111 times</p>
-            </li>
-            <li class="list-group-item">
-              <h6>FOLLOWERS:</h6> 
-              <p>1,222 people</p>
-            </li>
-            <li class="list-group-item">
-              <h6>FOLLOWING</h6> 
-              <p>333 people</p>
-            </li>
-          </ul>
         </div>
-      </div>
         <!-- Input - Tweets - News -- Container -->
-        <div class="col-9">
+        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
           <!-- Input -->
           <div class="row">
-            <div class="inputBar">
-              <input maxlength="140" type="text" placeholder="What's annoying you?" id="tweetInput"/>
-              <p class="tweet-length">
-                <span id="tweetLength"></span>
-              </p>
-                <button style="background-color:lightblue; color:white; font-size: .9rem; font-family: Open Sans !important" class="hvr-bubble-float-left" onclick="createTweet()">THROW</button>
+            <div class="inputBar d-flex flex-wrap">
+              <div class="input-and-length">
+                <input maxlength="140" type="text" placeholder="What's annoying you?" id="tweetInput"/>
+                <p class="tweet-length">
+                  <span id="tweetLength"></span>
+                </p>
+              </div>
+              <button style="background-color:lightblue; color:white; font-size: .9rem; font-family: Open Sans !important" class="hvr-bubble-float-left" onclick="createTweet()">THROW</button>
             </div>
           </div>      
           <!-- Tweets - News -- Container -->
           <div class="row">
             <!-- Tweets -->
-            <div class="col-8">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
               <ul id="tweets"></ul>
             </div>  
             <!-- News-->
-            <div class="col-4 news-container">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 news-container">
             <h4>News of the Day</h4>
             <ul id="newsList"></ul>
             </div> 
         </div>
-      </div>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <ul class="list-inline text-center">
-              <li class="list-inline-item"></li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <p class="copyright text-muted">
-              Copyright &copy; El Capitan - FTW 2019
-            </p>
-          </div>
         </div>
+        <!-- Footer -->
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-md-10 mx-auto">
+                <ul class="list-inline text-center">
+                  <li class="list-inline-item"></li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <span class="fa-stack fa-lg">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <p class="copyright text-muted">
+                  Copyright &copy; El Capitan - FTW 2019
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
-    </footer>
 
     <!-- Bootstrap core JavaScript -->
     <script

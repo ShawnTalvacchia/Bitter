@@ -6,9 +6,14 @@ body {
     font-size: 1rem;
 }
 
+.card {
+    min-width: 3rem;
+}
+
+
 /* News classes  */
     .news-container {
-        margin-top: 2rem;
+        margin-top: 1rem;
         margin-bottom: 3rem;
         border-radius: 1%;
         background-color: rgb(238, 246, 247);
@@ -70,9 +75,15 @@ body {
 
 .inputBar{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    
+    width: 95%;
+}
+
+.input-and-length {
+    display: flex;
+    justify-content: center;
     margin-top: .5rem;
-    width: 100%;
 }
 
 header {
@@ -80,21 +91,13 @@ header {
     padding-bottom: 5rem;
 }
 
-.input-and-length {
-    display: flex;
-    width: 700px;
-}
-
-
-.input-and-length input {
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-family: Lora !important;
-    padding-right: 1rem;
-}
 
 .inputBar input {
-    width: 75%;
+    
+    min-width: 25rem;
+    width: 45vw;
+    margin-right: auto;
+    margin-left: 0;
     height: 55px;
     border-radius: 25px;
     background-color: darkgray;
@@ -117,7 +120,7 @@ header {
     margin: 0;
     margin-left: -3rem;
     padding-left: 1.7rem;
-    width: 15%;
+    min-width: 6rem;
     z-index: 0;
     background-color: darkgray;
     display: flex;
@@ -143,15 +146,14 @@ header {
   }
 
 .inputBar button {
-    width: 20vw;
-    min-width: .8rem;
+    margin-top: .5rem;
+    min-width: 8rem;
     height: 55px;
     border-radius: 25px;
     background-color: white;
     padding-left: 2rem;
     padding-right: 2rem;
     margin-left: 1rem;
-    margin-right: auto;
     font-family: 'Crimson Pro', serif !important;
     font-size: .8rem;
 }
