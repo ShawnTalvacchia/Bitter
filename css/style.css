@@ -36,10 +36,12 @@ body {
     }
 
     #new-info {
-        width: 60%;
-        text-align: left;
+    width: 60%;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    padding: 5px;
     }
-
     
 
     #newsList {
@@ -76,7 +78,7 @@ body {
 .inputBar{
     display: flex;
     justify-content: space-around;
-    
+    margin-left: 20px;
     width: 95%;
 }
 
@@ -95,7 +97,7 @@ header {
 .inputBar input {
     
     min-width: 25rem;
-    width: 45vw;
+    width: 0;
     margin-right: auto;
     margin-left: 0;
     height: 55px;
@@ -148,6 +150,7 @@ header {
 .inputBar button {
     margin-top: .5rem;
     min-width: 8rem;
+    width: 30%;
     height: 55px;
     border-radius: 25px;
     background-color: white;

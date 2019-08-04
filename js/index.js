@@ -208,17 +208,17 @@ async function getNews() {
 function renderArticle(article) {
   if (article.author === null) return ''
 return ` 
-  <li class="news-article">
+  <li>
     <div class="row">
       <div id="new-info"
-        <a href="${article.url}">    
-          <p>${article.title}</p> 
-        </a>
+        <h6 style="font-size:.8rem">${article.title}</h6> 
         <small class="text-muted"> ${moment(article.publishedAt).format('MMMM Do YYYY, h:mm:ss a')}</small>
       </div>
         <div id="new-img">
           <img src="${article.urlToImage}" alt="Card image cap">
+          <a href="${article.url}"> 
           <small class="text-muted">${article.source.name}</small>  
+          </a>
         </div>
     </div>
   </li>
