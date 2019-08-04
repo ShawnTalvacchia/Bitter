@@ -204,17 +204,38 @@ document.body.addEventListener(
 
 getTweets();
 
-let url =
-  "https://newsapi.org/v2/top-headlines?country=us&apiKey=7a557050c3b9423599354c66f5211288";
+//NewsFeed
+let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=f6c3ae25887b49d4b108c546909dc4ca`;
 
 async function getNews() {
-  const response = await fetch(
-    "https://newsapi.org/v2/top-headlines?country=us&apiKey=7a557050c3b9423599354c66f5211288"
-  );
+  const response = await fetch(url)
   const jsonData = await response.json();
-  const newsHTML = jsonData.articles.map(renderArticle);
-  console.log(jsonData.articles[0]);
-  document.getElementById("newsList").innerHTML = newsHTML.join("");
-  console.log("Latest news", jsonData.title);
+
+  console.log('jsonData', jsonData.articles[0])
+
+  const newsHTML = jsonData.articles.slice(0,15).map(renderArticle);
+  document.getElementById('newsList').innerHTML = newsHTML.join(' ')
 }
-// getNews()
+
+
+function renderArticle(article) {
+  if (article.author === null) return ''
+return ` 
+  <li>
+    <div class="row">
+      <div id="new-info"
+        <h6 style="font-size:.8rem">${article.title}</h6> 
+        <small class="text-muted"> ${moment(article.publishedAt).format('MMMM Do YYYY, h:mm:ss a')}</small>
+      </div>
+        <div id="new-img">
+          <img src="${article.urlToImage}" alt="Card image cap">
+          <a href="${article.url}"> 
+          <small class="text-muted">${article.source.name}</small>  
+          </a>
+        </div>
+    </div>
+  </li>
+  `
+}
+
+getNews()

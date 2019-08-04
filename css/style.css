@@ -2,9 +2,90 @@ body {
     font-family: 'Crimson Pro', serif;
 }
 
+.card p {
+    font-size: 1rem;
+}
+
+.card {
+    min-width: 3rem;
+}
+
+
+/* News classes  */
+    .news-container {
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        border-radius: 1%;
+        background-color: rgb(238, 246, 247);
+        text-align: center;
+        padding-right: 0 !important;
+    }
+
+    .news-container h4 {
+        margin-top: 1rem;
+    }
+
+    #new-img {
+        width: 40%;
+        padding-right: 1rem !important;
+        } 
+
+    #new-img img {
+        width: 115%;
+        padding-top: 1rem !important;
+    }
+
+    #new-info {
+    width: 60%;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    padding: 5px;
+    }
+    
+
+    #newsList {
+        padding: 0;
+    }
+
+    #tweets {
+        padding: 0;
+    }
+
+
+    #newsList li {
+        margin-top: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        list-style: none;    
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        background-color: white;
+    }
+
+    .news-container p {
+        font-size: .8rem;
+        margin: 0rem;
+        padding: .5rem;
+    }
+
+    .news-container small {
+        font-size: .6rem;
+        padding: .5rem;
+    }
+/* News Classes End */
+
 .inputBar{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    margin-left: 20px;
+    width: 95%;
+}
+
+.input-and-length {
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
 }
 
 header {
@@ -12,24 +93,13 @@ header {
     padding-bottom: 5rem;
 }
 
-.input-and-length {
-    display: flex;
-    width: 700px;
-}
-
-.inputBar p {
-    margin-top: 1rem !important;
-}
-
-.input-and-length input {
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-family: Lora !important;
-    padding-right: 1rem;
-}
 
 .inputBar input {
-    width: 700px;
+    
+    min-width: 25rem;
+    width: 0;
+    margin-right: auto;
+    margin-left: 0;
     height: 55px;
     border-radius: 25px;
     background-color: darkgray;
@@ -47,15 +117,12 @@ header {
     color: white;
 }
 
-.inputBar button {
-    margin-top: 1rem;
-}
 
 .inputBar p {
-    margin-left: -3rem !important;
     margin: 0;
+    margin-left: -3rem;
     padding-left: 1.7rem;
-    width: 12rem;
+    min-width: 6rem;
     z-index: 0;
     background-color: darkgray;
     display: flex;
@@ -81,16 +148,17 @@ header {
   }
 
 .inputBar button {
-    width: 20vw;
-    min-width: 10rem;
+    margin-top: .5rem;
+    min-width: 8rem;
+    width: 30%;
     height: 55px;
     border-radius: 25px;
     background-color: white;
     padding-left: 2rem;
     padding-right: 2rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 1rem;
     font-family: 'Crimson Pro', serif !important;
+    font-size: .8rem;
 }
 
 #tweets li {
@@ -183,4 +251,14 @@ header.masthead {
     border: none !important;
 }
 
-  
+.card {
+    display: flex;
+    position: left;
+    align-content: flex-start;
+}
+
+footer {
+    margin: auto;
+    width: 100%
+
+}
