@@ -10,6 +10,7 @@ async function getTweets() {
 // let tweets = JSON.parse(localStorage.getItem("tweets")) || [];
 let inputField = document.getElementById("tweetInput");
 let currentUser = "Anonymous";
+let filter = "all";
 
 function setLocalstorage(newTweets) {
   localStorage.setItem("tweets", JSON.stringify(newTweets));
@@ -92,12 +93,24 @@ function renderSingleTweet(tweet, index) {
 
 //Take tweet array, apply template to each element, put in HTML
 function renderTweets() {
-  let tweetsList = tweets.map(renderSingleTweet);
+  let filtered;
+  if (filter == "all") {
+    filtered = tweets;
+  } else {
+    filtered = tweets.filter(tweet => tweet.body.includes(filter));
+  }
+  let tweetsList = filtered.map(renderSingleTweet);
   document.getElementById("tweets").innerHTML = tweetsList.join("");
   inputField.placeholder = `What is annoying you ${currentUser}?`;
+  document.getElementById("clearFilter").innerHTML =
+    '<button class="btn btn-dark rounded-pill mt-2" onclick="clearFilter()">Clear filter ⤾</button>';
   setLocalstorage(tweets);
 }
 
+function clearFilter() {
+  filter = "all";
+  renderTweets();
+}
 //Take input from user and create new tweet
 function createTweet() {
   let tweetContent = inputField.value;
@@ -166,6 +179,7 @@ function changeUser() {
   currentUser = prompt("Who are you?");
   renderTweets();
 }
+
 // Change text with # or @ into clickable tags
 function parseText(text) {
   let wordsArray = text.split(" ");
@@ -173,25 +187,24 @@ function parseText(text) {
     .map(word => {
       if (word.startsWith("@")) return `<a class="tag" href="#">${word}</a>`;
       else if (word.startsWith("#"))
-        return `<a class="hashtag" href="#" onclick=filter(${word})>${word}</a>`;
+        return `<a class="hashtag" href="#">${word}</a>`;
       else return word;
     })
     .join(" ");
 }
 
-function filter(word) {
-  console.log(word);
-}
-// For tags: onclick, filter tweets
-// document.body.addEventListener(
-//   "click",
-//   function(evt) {
-//     if (evt.target.className === "hashtag") {
-//       alert(evt.srcElement);
-//     }
-//   },
-//   false
-// );
+// For hashtags: onclick, filter tweets
+document.body.addEventListener(
+  "click",
+  function(evt) {
+    if (evt.target.className === "hashtag") {
+      console.log(evt);
+      filter = evt.target.text;
+      renderTweets();
+    }
+  },
+  false
+);
 
 getTweets();
 
