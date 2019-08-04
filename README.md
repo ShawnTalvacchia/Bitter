@@ -30,5 +30,5 @@ View online [here]()
 
 ## Preview
 
-[![Bitter Preview]](img/Bitter-screenshot.png)
+![image](img/Bitter-screenshot.png)
 
