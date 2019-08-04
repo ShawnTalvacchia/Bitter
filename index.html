@@ -65,20 +65,11 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="post.html">Sample Post</a>
-            </li>
-            <li class="nav-item">
               <input
                 name=""
                 id=""
                 onclick="changeUser()"
-                class="btn btn-info"
+                class="btn btn-lg btn-info"
                 type="button"
                 value="Not you?"
               />
@@ -96,7 +87,7 @@
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
               <h1>Bitter</h1>
-              <span class="subheading">Complain to the world!</span>
+              <span style="color:lightblue" class="subheading">Complain to the world!</span>
             </div>
           </div>
         </div>
@@ -108,26 +99,30 @@
       <div class="row">
         <!-- Sidebar -->
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          <div class="card">
+          <div class="card text-white border-light bg-dark">
             <img src="https://ae01.alicdn.com/kf/HTB1W0q.teuSBuNjSsziq6zq8pXaB/Lovely-Horns-Car-Sticker-Styling-Cartoon-Decals-Vinyl-Waterproof-Car-Styling.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Unicorn in Tech</h5>
               <p class="card-text">Code or die!</p>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
+          </div>
+          <div class="card text-white border-light bg-dark">
+            <div class="card-body border-light">
                 <h6>TWEETED:</h6> 
                 <p>111 times</p>
-              </li>
-              <li class="list-group-item">
+            </div>
+          </div>
+          <div class="card text-white border-light bg-dark">
+            <div class="card-body">
                 <h6>FOLLOWERS:</h6> 
                 <p>1,222 people</p>
-              </li>
-              <li class="list-group-item">
+            </div>
+          </div>
+          <div class="card text-white border-light bg-dark">
+            <div class="card-body">
                 <h6>FOLLOWING</h6> 
                 <p>333 people</p>
-              </li>
-            </ul>
+            </div>
           </div>
         </div>
         <!-- Input - Tweets - News -- Container -->
@@ -147,7 +142,7 @@
           <!-- Tweets - News -- Container -->
           <div class="row">
             <!-- Tweets -->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+            <div class="tweet-background col-xs-12 col-sm-12 col-md-12 col-lg-8">
               <ul id="tweets"></ul>
             </div>  
             <!-- News-->

@@ -40,35 +40,39 @@ function renderSingleTweet(tweet, index) {
   return `
     <li>
     <div class="row">  
-    <div class="col avatar">
-    <img id="avatar" src="img/GitHub-icon.png">
-    </div>
-    <div class="col-10">
-    <h5> ${tweet.userName} </h5> 
-    <p> ${parseText(tweet.body)} </p>
-    <div class="mb-3 mt-1">
-    <small class="text-muted"> ${tweet.createdAt} </small>
-    </div>
-    <div class="tweet-buttons">
-    <div>
-    <button class="btn-sm btn btn-outline-dark" 
-    onclick=toggle(${index})>${
-    tweet.isLiked
-      ? '<i class="fa fa-heart" aria-hidden="true"></i>'
-      : '<i class="far fa-heart"></i>'
-  }
-    </button>
-    <button class="btn-sm btn btn-dark" style="visibility: ${
-      currentUser == "Anonymous" ? "hidden" : null
-    }"
-                    onclick=retweet(${index})>Retweet
-                    </button>
-                    </div>
-                    <button class="btn-sm btn btn-outline-danger" style="visibility: ${
-                      tweet.userName != currentUser ? "hidden" : null
-                    }" 
-                  onclick=deleteTweet(${index})>Remove
-                  </button>
+      <div class="col avatar">
+        <img id="avatar" src="img/GitHub-icon.png">
+      </div>
+      <div class="col-10">
+        <h5> ${tweet.userName} </h5> 
+        <p> ${parseText(tweet.body)} </p>
+        
+      <div class="tweet-buttons">
+        
+        <div class="mb-3 mt-1">
+          <small class="text-muted"> ${tweet.createdAt} </small>
+        </div>
+        
+        <div>
+          <button class="btn btn btn-outline-dark" 
+            onclick=toggle(${index})>${tweet.isLiked
+              ? '<i class="fa fa-heart" aria-hidden="true"></i>'
+              : '<i class="far fa-heart"></i>'
+              }
+          </button>
+          <button class="btn btn btn-dark" style="visibility: ${
+            currentUser == "Anonymous" ? "hidden" : null
+              }"
+              onclick=retweet(${index})>Retweet
+          </button>
+        </div>
+        <div>
+          <button class="btn btn btn-outline-danger" style="visibility: ${
+            tweet.userName != currentUser ? "hidden" : null
+              }" 
+              onclick=deleteTweet(${index})>Remove
+            </button>
+          </div>
         </div>
         <div class="input-group mt-3">
           <!-- <div class="input-group-prepend">

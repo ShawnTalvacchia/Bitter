@@ -6,16 +6,33 @@ body {
     font-size: 1rem;
 }
 
+.card-outline {
+    border-color: lightblue;
+    border-width: 20px;
+}
+
 .card {
     min-width: 3rem;
 }
 
+.card h5, h6 {
+    color: lightblue;
+}
+
+.tweet-background {
+    background-color:#1f2125;
+    border-radius: 1%;
+    padding: .5rem;
+    margin-top: 1rem;
+    border-top-right-radius: 0%;
+}
 
 /* News classes  */
     .news-container {
         margin-top: 1rem;
         margin-bottom: 3rem;
         border-radius: 1%;
+        border-top-left-radius: 0%;
         background-color: rgb(238, 246, 247);
         text-align: center;
         padding-right: 0 !important;
