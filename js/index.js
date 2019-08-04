@@ -95,13 +95,18 @@ function renderTweets() {
   } else {
     filtered = tweets.filter(tweet => tweet.body.includes(filter));
   }
-  console.log(filtered);
   let tweetsList = filtered.map(renderSingleTweet);
   document.getElementById("tweets").innerHTML = tweetsList.join("");
   inputField.placeholder = `What is annoying you ${currentUser}?`;
+  document.getElementById("clearFilter").innerHTML =
+    '<button class="btn btn-dark rounded-pill mt-2" onclick="clearFilter()">Clear filter ⤾</button>';
   setLocalstorage(tweets);
 }
 
+function clearFilter() {
+  filter = "all";
+  renderTweets();
+}
 //Take input from user and create new tweet
 function createTweet() {
   let tweetContent = inputField.value;
