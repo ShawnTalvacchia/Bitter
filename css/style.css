@@ -3,8 +3,8 @@ body {
 }
 
 .inputBar{
-    display: flex;
-    justify-content: space-evenly;
+    /* display: flex; */
+    /* justify-content: space-evenly; */
 }
 
 header {
@@ -17,9 +17,6 @@ header {
     width: 700px;
 }
 
-.inputBar p {
-    margin-top: 1rem !important;
-}
 
 .input-and-length input {
     margin-top: 1rem;
@@ -29,7 +26,7 @@ header {
 }
 
 .inputBar input {
-    width: 700px;
+    width: 60%;
     height: 55px;
     border-radius: 25px;
     background-color: darkgray;
@@ -46,16 +43,16 @@ header {
     box-shadow: 0px 0px 3px 3px darkgrey;
     color: white;
 }
-
+/* 
 .inputBar button {
     margin-top: 1rem;
-}
+} */
 
 .inputBar p {
-    margin-left: -3rem !important;
+    /* margin-left: -3rem !important; */
     margin: 0;
     padding-left: 1.7rem;
-    width: 12rem;
+    width: 20%;
     z-index: 0;
     background-color: darkgray;
     display: flex;
@@ -81,7 +78,7 @@ header {
   }
 
 .inputBar button {
-    width: 20vw;
+    /* width: 20vw; */
     min-width: 10rem;
     height: 55px;
     border-radius: 25px;
@@ -183,4 +180,9 @@ header.masthead {
     border: none !important;
 }
 
-  
+.card {
+    display: flex;
+    position: left;
+    align-content: flex-start;
+
+}
