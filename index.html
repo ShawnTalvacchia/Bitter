@@ -78,7 +78,7 @@
                 name=""
                 id=""
                 onclick="changeUser()"
-                class="btn btn-warning"
+                class="btn btn-info"
                 type="button"
                 value="Not you?"
               />
@@ -107,6 +107,7 @@
     <div class="container">
     <div class="row">
 
+      <!-- Sidebar -->
       <div class='col-3'>
         <div class="card">
           <img src="https://ae01.alicdn.com/kf/HTB1W0q.teuSBuNjSsziq6zq8pXaB/Lovely-Horns-Car-Sticker-Styling-Cartoon-Decals-Vinyl-Waterproof-Car-Styling.jpg" class="card-img-top" alt="...">
@@ -115,44 +116,45 @@
             <p class="card-text">Code or die!</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">TWEETED: 111 times</li>
-            <li class="list-group-item">FOLLOWERS: 1,222 people</li>
-            <li class="list-group-item">FOLLOWING: 333 people</li>
+            <li class="list-group-item">
+              <h5>TWEETED:</h5> 
+              <p>111 times</p>
+            </li>
+            <li class="list-group-item">
+              <h5>FOLLOWERS:</h5> 
+              <p>1,222 people</p>
+            </li>
+            <li class="list-group-item">
+              <h5>FOLLOWING</h5> 
+              <p>333 people</p>
+            </li>
           </ul>
         </div>
       </div>
-
-
-
-      <!-- <div class="container"> -->
-        <div class="col-6">
-          <div class="inputBar">
-          
-              <input maxlength="140" type="text" placeholder="What's annoying you?" id="tweetInput"  />
-        
-             <div class="d-flex">
+        <!-- Input - Tweets - News -- Container -->
+        <div class="col-9">
+          <!-- Input -->
+          <div class="row">
+            <div class="inputBar">
+              <input maxlength="140" type="text" placeholder="What's annoying you?" id="tweetInput"/>
               <p class="tweet-length">
                 <span id="tweetLength"></span>
               </p>
-              <button style="background-color:lightblue; color:white; font-size: 1.5rem; font-family: Open Sans !important" class="hvr-bubble-float-left" onclick="createTweet()">THROW</button>
-            </div> 
-          </div>      
-          <!-- </div> -->
-    
-          <div >
-            <ul id="tweets"></ul>
-            <div >
-              <ul id="tweets"></ul>
+                <button style="background-color:lightblue; color:white; font-size: .9rem; font-family: Open Sans !important" class="hvr-bubble-float-left" onclick="createTweet()">THROW</button>
             </div>
-          </div>
-        </div>  
-
-        <!-- newsectin-->
-        <div class="col-3">
-          new section
+          </div>      
+          <!-- Tweets - News -- Container -->
+          <div class="row">
+            <!-- Tweets -->
+            <div class="col-8">
+              <ul id="tweets"></ul>
+            </div>  
+            <!-- News-->
+            <div class="col-4 news-container">
+            <h4>News of the Day</h4>
+            <ul id="newsList"></ul>
+            </div> 
         </div>
-           </div>  
-  
     </div>
 
     
