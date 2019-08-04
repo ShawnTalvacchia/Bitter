@@ -10,6 +10,7 @@ async function getTweets() {
 // let tweets = JSON.parse(localStorage.getItem("tweets")) || [];
 let inputField = document.getElementById("tweetInput");
 let currentUser = "Anonymous";
+let filter = "all";
 
 function setLocalstorage(newTweets) {
   localStorage.setItem("tweets", JSON.stringify(newTweets));
@@ -39,47 +40,47 @@ function newTweet(
 function renderSingleTweet(tweet, index) {
   return `
     <li>
-    <div class="row">  
-    <div class="col avatar">
-    <img id="avatar" src="img/GitHub-icon.png">
-    </div>
-    <div class="col-10">
-    <h5> ${tweet.userName} </h5> 
-    <p> ${parseText(tweet.body)} </p>
-    <div class="mb-3 mt-1">
-    <small class="text-muted"> ${tweet.createdAt} </small>
-    </div>
-    <div class="tweet-buttons">
-    <div>
-    <button class="btn-sm btn btn-outline-dark" 
-    onclick=toggle(${index})>${
+      <div class="row">  
+        <div class="col avatar">
+          <img id="avatar" src="img/GitHub-icon.png">
+        </div>
+        <div class="col-10">
+          <h5> ${tweet.userName} </h5> 
+          <p> ${parseText(tweet.body)} </p>
+          <div class="mb-3 mt-1">
+            <small class="text-muted"> ${tweet.createdAt} </small>
+          </div>
+          <div class="tweet-buttons">
+            <div>
+              <button class="btn-sm btn btn-outline-dark" 
+              onclick=toggle(${index})>${
     tweet.isLiked
       ? '<i class="fa fa-heart" aria-hidden="true"></i>'
       : '<i class="far fa-heart"></i>'
   }
-    </button>
-    <button class="btn-sm btn btn-dark" style="visibility: ${
-      currentUser == "Anonymous" ? "hidden" : null
-    }"
+              </button>
+              <button class="btn-sm btn btn-dark" style="visibility: ${
+                currentUser == "Anonymous" ? "hidden" : null
+              }"
                     onclick=retweet(${index})>Retweet
-                    </button>
-                    </div>
-                    <button class="btn-sm btn btn-outline-danger" style="visibility: ${
-                      tweet.userName != currentUser ? "hidden" : null
-                    }" 
-                  onclick=deleteTweet(${index})>Remove
-                  </button>
-        </div>
-        <div class="input-group mt-3">
-          <!-- <div class="input-group-prepend">
-          <span class="input-group-text" ">${currentUser}</span>
-          </div> -->
-          <input type="text" class="form-control commentInput" onchange= "addComment(${index}, currentUser)" 
-          placeholder="Comment">
-        </div>
-        <ul class="comments" style="padding:0">  
-        <small> ${renderComment(index) || "No comment on this post"}</small>
-        </ul>
+              </button>
+            </div>
+            <button class="btn-sm btn btn-outline-danger" style="visibility: ${
+              tweet.userName != currentUser ? "hidden" : null
+            }" 
+            onclick=deleteTweet(${index})>Remove
+            </button>
+          </div>
+          <div class="input-group mt-3">
+            <!-- <div class="input-group-prepend">
+            <span class="input-group-text" ">${currentUser}</span>
+            </div> -->
+            <input type="text" class="form-control commentInput" onchange= "addComment(${index}, currentUser)" 
+            placeholder="Comment">
+          </div>
+          <ul class="comments" style="padding:0">  
+            <small> ${renderComment(index) || "No comment on this post"}</small>
+          </ul>
         </div>
         </div>
         </li>
@@ -88,7 +89,14 @@ function renderSingleTweet(tweet, index) {
 
 //Take tweet array, apply template to each element, put in HTML
 function renderTweets() {
-  let tweetsList = tweets.map(renderSingleTweet);
+  let filtered;
+  if (filter == "all") {
+    filtered = tweets;
+  } else {
+    filtered = tweets.filter(tweet => tweet.body.includes(filter));
+  }
+  console.log(filtered);
+  let tweetsList = filtered.map(renderSingleTweet);
   document.getElementById("tweets").innerHTML = tweetsList.join("");
   inputField.placeholder = `What is annoying you ${currentUser}?`;
   setLocalstorage(tweets);
@@ -162,6 +170,7 @@ function changeUser() {
   currentUser = prompt("Who are you?");
   renderTweets();
 }
+
 // Change text with # or @ into clickable tags
 function parseText(text) {
   let wordsArray = text.split(" ");
@@ -169,25 +178,24 @@ function parseText(text) {
     .map(word => {
       if (word.startsWith("@")) return `<a class="tag" href="#">${word}</a>`;
       else if (word.startsWith("#"))
-        return `<a class="hashtag" href="#" onclick=filter(${word})>${word}</a>`;
+        return `<a class="hashtag" href="#">${word}</a>`;
       else return word;
     })
     .join(" ");
 }
 
-function filter(word) {
-  console.log(word);
-}
-// For tags: onclick, filter tweets
-// document.body.addEventListener(
-//   "click",
-//   function(evt) {
-//     if (evt.target.className === "hashtag") {
-//       alert(evt.srcElement);
-//     }
-//   },
-//   false
-// );
+// For hashtags: onclick, filter tweets
+document.body.addEventListener(
+  "click",
+  function(evt) {
+    if (evt.target.className === "hashtag") {
+      console.log(evt);
+      filter = evt.target.text;
+      renderTweets();
+    }
+  },
+  false
+);
 
 getTweets();
 
